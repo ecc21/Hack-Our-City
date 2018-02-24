@@ -13,7 +13,7 @@ def open_csv(name):
 	return df
 
 def clean_dataframe(dataframe):
-	df = dataframe[['Name', 'Category', 'Address',
+	df = dataframe[['Name', 'Category', 'Address','X','Y',
 					'Monday','Tuesday','Wednesday',
 					'Thursday', 'Friday', 'Saturday',
 					'Sunday', 'Accessible']]
@@ -39,7 +39,7 @@ def main():
 	#print(csv["Monday"][1])
 
 	#print(m)
-	#dataframe.to_sql("washrooms", conn)
+	dataframe.to_sql("washrooms", conn)
 	#c = conn.cursor()
 	#c.execute("select * from washrooms")
 	#data = c.fetchall()

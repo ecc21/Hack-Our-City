@@ -3,6 +3,11 @@ import pandas
 import numpy
 import re
 
+class database:
+	def __init__(self):
+		self.db = open_database()
+	
+
 def open_database():
 	#name = name + ".db"
 	conn = sqlite3.connect("toiletbase.db")
