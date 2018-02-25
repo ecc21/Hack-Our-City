@@ -34,12 +34,18 @@ def main():
 	conn = create_database("toiletbase.db")
 	csv = open_csv("WASHROOMS.CSV")
 	#print(csv)
-	dataframe = clean_dataframe(csv)
+	dataframe = csv[['Address','Name','Y','X']] #x = lng, y = lat
+	dataframe.columns = ['Address','Name','lat','lng']
+	
+	hours = csv[['Address','Monday','Tuesday','Wednesday',
+			'Thursday', 'Friday', 'Saturday', 'Sunday']]
 	#print(dataframe)
 	#print(csv["Monday"][1])
 
 	#print(m)
-	dataframe.to_sql("washrooms", conn)
+	dataframe.to_sql("washrooms", conn, index = False)
+	hours.to_sql("hours", conn, index = False)
+
 	#c = conn.cursor()
 	#c.execute("select * from washrooms")
 	#data = c.fetchall()
