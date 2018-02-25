@@ -13,7 +13,7 @@ def open_csv(name):
 	return df
 
 def clean_dataframe(dataframe):
-	df = dataframe[['Name', 'Category', 'Address','X','Y',
+	df = dataframe[['Name', 'Address','X','Y',
 					'Monday','Tuesday','Wednesday',
 					'Thursday', 'Friday', 'Saturday',
 					'Sunday']]

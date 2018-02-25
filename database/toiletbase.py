@@ -11,12 +11,22 @@ class database:
 	def __init__(self):
 		self.db = open_database()
 
+	def get_toilet(address):
+		c = self.cursor()
+		c.execute("select address from washrooms where address = " + address)
+
 def open_database():
 	#name = name + ".db"
 	conn = sqlite3.connect("toiletbase.db")
 	return conn
 
 	#del m[2]
+def locate_toilet(address):
+	gmaps = googlemaps.Client(key="AIzaSyBx2FO-H9l_oQU8VL5xZI8msiBoYNO_1dM")
+	geocode_result = gmaps.geocode(address)
+	return (geocode_result[0]['formatted_address'],geocode_result[0]['geometry']['location'])
+
+def get_toilet_from_database(address):
 
 
 def main(): 
@@ -29,12 +39,11 @@ def main():
 	#print(address)
 	gmaps = googlemaps.Client(key="AIzaSyBx2FO-H9l_oQU8VL5xZI8msiBoYNO_1dM")
 
-	#reverse_geocode_result = gmaps.reverse_geocode((y, x))
-	geocode_result = gmaps.geocode(name + " " + address)
-	print(geocode_result[0]['formatted_address'])
-	print(geocode_result[0]['geometry']['location'])
-
-
+	formatted_address, location = locate_toilet(name + " " + address)
+	
+	c.execute("select address from washrooms where address = " + address)
+	
+	
 	#print(geocode_result["address_components"]["lng"])
 	#for row in c.execute("select * from washrooms"):
 	#	print(c.fetchone())
