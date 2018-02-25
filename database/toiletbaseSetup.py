@@ -16,7 +16,7 @@ def clean_dataframe(dataframe):
 	df = dataframe[['Name', 'Category', 'Address','X','Y',
 					'Monday','Tuesday','Wednesday',
 					'Thursday', 'Friday', 'Saturday',
-					'Sunday', 'Accessible']]
+					'Sunday']]
 	return df
 
 #def to_twenty_four_clock(time_string):
