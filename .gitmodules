@@ -1,0 +1,3 @@
+[submodule "Hack-Our-City"]
+	path = Hack-Our-City
+	url = https://github.com/ecc21/Hack-Our-City.git
